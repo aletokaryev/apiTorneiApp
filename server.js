@@ -13,9 +13,9 @@ APP.use('/api', require('./routes/players'))
 APP.use('/api', require('./routes/game'))
 APP.use('/api', require('./routes/tournament'))
 
-mongoDBUri = "mongodb+srv://alebtokaryev:tuamadre@torneih.482le9m.mongodb.net/?retryWrites=true&w=majority&appName=torneih"
+dbUrl = process.env.MONGODBURI
 
-mongoose.connect(mongoDBUri)
+mongoose.connect(dbUrl)
 .then(APP.listen(PORT, () => console.log(`Connected to database and listening on localhost:${PORT}!`)))
 .catch(err => console.error('Error while connecting.', err))
 
