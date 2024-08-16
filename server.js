@@ -17,7 +17,7 @@ APP.use('/api', require('./routes/tournament'))
 const uri = process.env.MONGO_URI;
 
 mongoose.connect(uri)
-.then(APP.listen(PORT, () => console.log(`Connected to database and listening on localhost:${PORT}!`)))
+.then(APP.listen(PORT, '0.0.0.0', () => console.log(`Connected to database and listening on port: ${PORT}!`)))
 .catch(err => console.error('Error while connecting.', err))
 
 
